@@ -28,14 +28,14 @@
   <div class="reviews">
         <div class="content">
           <h6>Reviews</h6>
-          <% @restaurant.reviews.each do|review|%>
+          <% @restaurant.reviews.each do|rev|%>
             <div class="review">
-            <h10><%=review.content %></h10>
-            <p><% review.rating.times do %>
+            <h10><%=rev.content %></h10>
+            <p><% rev.rating.times do %>
                ⭐
               <% end %></p>
               <p><%= link_to "Delete comment?❌",
-              review_path,
+              review_path(rev),
               method: :delete,
               data: { confirm: "Are you sure?" } %><p>
             </div>

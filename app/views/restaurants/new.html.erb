@@ -1,0 +1,17 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <h4><%= link_to "Home", restaurants_path %></h4>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="navbar-content">
+          <%= link_to "New restaurant", new_restaurant_path %>
+        </div>
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="form-design">
+  <h5>******** Add your restaurant********</h5>
+  <%= render "form", restaurant: @restaurant%>
+</div>
+

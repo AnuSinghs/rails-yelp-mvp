@@ -1,0 +1,45 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+     <h4><%= link_to "Home", restaurants_path %></h4>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="navbar-content">
+          <%= link_to "New restaurant", new_restaurant_path %>
+        </div>
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="restaurants">
+    <div class="content">
+      <h3><%= @restaurant.name %>
+        <small class="bottom">
+          <%= link_to "❌ ",
+            restaurant_path(@restaurant),
+            method: :delete,
+            data: { confirm: "Are you sure?" } %>
+          <%= link_to "✏️", edit_restaurant_path(@restaurant) %>
+        </small>
+        </h3>
+      <p>Address: <%= @restaurant.address %></p>
+      <p>Phone Number:<%= @restaurant.phone_number %></p>
+      <p>Category: <%= @restaurant.category %></p>
+  </div>
+  <div class="reviews">
+        <div class="content">
+          <h6>Reviews</h6>
+          <% @restaurant.reviews.each do|review|%>
+            <div class="review">
+            <h10><%=review.content %></h10>
+            <p><% review.rating.times do %>
+               ⭐
+              <% end %></p>
+              <p><%= link_to "Delete comment?❌",
+              review_path,
+              method: :delete,
+              data: { confirm: "Are you sure?" } %><p>
+            </div>
+            <% end %>
+          </div>
+      </div>
+  </div>
